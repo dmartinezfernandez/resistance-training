@@ -1,0 +1,41 @@
+﻿/*
+
+IBM colors (https://www.ibm.com/design/language/):
+    0043ce Blue 70
+    97c1ff Blue 30
+    6929c4 Purple 70
+    13171a Cool Gray 100
+    21272a Cool Gray 90
+    4d5358 Cool Gray 70
+    878d96 Cool Gray 50
+    b9bfc7 Cool Gray 30
+
+*/
+
+html, input, select {
+    font-family: system-ui;
+    background-color: #13171a /* Cool Gray 100 */;
+    color: #b9bfc7 /* Cool Gray 30 */;
+}
+
+.darker {
+    color: #878d96; /* Cool Gray 50 */
+}
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+a {
+    color: #97c1ff /* Blue 30 */;
+    text-decoration: unset;
+}
+
+    a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+input {
+    border: none;
+}
