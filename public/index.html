@@ -1,43 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>%REACT_APP_TITLE%</title>
+  <link rel="icon" href="favicon.ico" />
+  <link type="text/css" rel="stylesheet" href="fitness.css">
+  <link type="text/css" rel="stylesheet" href="resistancetraining.css">
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<body>
+  <h1>%REACT_APP_TITLE%</h1>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+  <!-- App-->
+
+  <main class="app"></main>
+  <br>
+
+  <!-- Rationale -->
+
+  <details>
+    <summary>Rationale</summary>
+    <br>
+    <span style="background-color: var(--strength-color)">&nbsp;&bull;&nbsp;</span>&nbsp;Strength: Load 85-100 %, 1-6
+    repetitions, 2-6 sets.<br>
+    <span style="background-color: var(--hypertrophy-color)">&nbsp;&bull;&nbsp;</span>&nbsp;Hypertrophy: Load 67-85 %,
+    6-12 repetitions, 3-6 sets.<br>
+    Repetition Maximum (RM) data from <i>Essentials of strength training and conditioning</i>*.<br>
+    <br>
+    <small class="darker">*Haff, G., & Triplett, N. T. (2016). <i>Essentials of strength training and
+        conditioning</i>. Fourth edition. Champaign, IL: Human Kinetics.</small>
+  </details>
+  <br>
+
+  <footer>
+    <small class="darker">
+      Copyright &copy; 2021 Daniel Martínez Fernández. MIT License.
+    </small>
+  </footer>
+
+</body>
+
 </html>
+
+
+
+
+<!-- <section ng-controller="ResistanceTrainingController as controller" ng-cloak>
+
+    -- Table --
+
+    <rm-table exercises="controller.data.exercises" precision="controller.data.precision"
+      has-data="controller.data.isLoaded"></rm-table>
+    <br ng-if="controller.data.isLoaded">
+
+
+    -- 1RM Calculator --
+
+    <details>
+      <summary>1RM Calculator</summary>
+      <br>
+      <label>Load:</label><br>
+      <input type="text" ng-model="controller.calculator.load" placeholder="Enter load here"
+        ng-change="controller.calculatorChange()"><br>
+      <label>Repetitions:</label><br>
+      <input type="text" ng-model="controller.calculator.reps" placeholder="Enter repetitions here"
+        ng-change="controller.calculatorChange()"><br>
+
+      <rm-table exercises="controller.calculator.exercises" precision="controller.calculator.precision"
+        has-data="controller.calculatorHasValue()"></rm-table>
+
+    </details>
+    <br>
+
+    -- Query --
+
+    <details ng-open="!controller.data.isLoaded">
+      <summary>Query</summary>
+      <br>
+      <label>Exercises:</label><br>
+      <input type="text" ng-model="controller.query.exercises" placeholder="Enter comma separated exercises here"
+        style="width: 100%;">
+      <label>1RM:</label><br>
+      <input type="text" ng-model="controller.query.rm1" placeholder="Enter comma separated 1RM values here"
+        style="width: 100%;"><br>
+      <label>Precision:</label><br>
+      <select ng-model="controller.query.precision">
+        <option value="2.5">2.5</option>
+        <option value="1">1</option>
+        <option value="0.5">0.5</option>
+      </select><br>
+      <br>
+      <a href="javascript:void(0)" ng-click="controller.query.submit()">Submit</a><br>
+      Enter comma separated exercises and 1RM values, then click submit and add the new URL to your browser bookmarks.
+    </details>
+  </section>
+  <br>
+
+
+  -- Javascript --
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script>
+    "use strict";
+
+    (function () {
+      angular.module('app', []);
+    }());
+
+  </script>
+  <script src="resistancetraining.js"></script>
+  <script src="resistanceTraining/rmTable.js"></script>
+-->

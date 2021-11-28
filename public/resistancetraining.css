@@ -1,0 +1,29 @@
+﻿
+:root {
+    /* resistanceTraining/rmTable.js */
+    --strength-color: #0043ce;
+    --hypertrophy-color: #6929c4;
+    --undefined-color: #21272a;
+}
+
+
+.ng-cloak {
+    display: none !important;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: #21272a;
+}
+
+.numeric-table th {
+    vertical-align: bottom;
+    font-weight: normal;
+    text-align: left;
+    padding: 0.2em;
+}
+.numeric-table td {
+    white-space: nowrap;
+    padding: 0 0.2em;
+    text-align: right;
+}
