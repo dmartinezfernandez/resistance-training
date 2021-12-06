@@ -1,24 +1,72 @@
-function RMTable() {
-    let exercise_name, rm_reps, $ctrl_precision, rm_factor, $ctrl_round = (_) => undefined, exercise_rm1;
+import Essentials from "./Essentials";
 
-    /*
+/**
+ * @typedef {object} Exercise
+ * @property {string} name
+ * @property {number} rm1 - 1RM
+ */
 
-     */
+/**
+ * RM Table component
+ * @param {Object} props
+ * @param {Exercise[]} props.exercises - Exercises
+ * @param {number | string} props.precision - Precision
+ */
+function RMTable(props) {
+    const precision = Number(props.precision);
+    const decimals = precision !== NaN && !Number.isInteger(precision) ?
+        precision.toString().split('.')[1].length : 0;
+    const round = function (value) {
+        let x = Math.round(value / precision) * precision;
+        x = parseFloat(x.toFixed(decimals));
+        return x;
+    }
+    const background = (factor) => {
+        if (factor > 0.85) {
+            return {
+                'background-color': 'var(--strength-color)'
+            };
+        }
+        else if (factor == 0.85) {
+            return {
+                'background-image': 'linear-gradient(var(--strength-color), var(--hypertrophy-color))'
+            };
+        }
+        else if (factor > 0.67) {
+            return {
+                'background-color': 'var(--hypertrophy-color)'
+            };
+        }
+        else if (factor == 0.67) {
+            return {
+                'background-image': 'linear-gradient(var(--hypertrophy-color), var(--undefined-color))'
+            };
+        }
+        else {
+            return {
+                'background-color': 'var(--undefined-color)'
+            }
+        }
+    };
+
     return (
-        <div ng-if="$ctrl.hasData">
+        <div>
             <table class="numeric-table">
                 <tr>
                     <th>Load</th>
                     <th>RM</th>
-                    <th ng-repeat="exercise in $ctrl.exercises"><i>{exercise_name}</i></th>
+                    {props.exercises.map((exercise) => <th><i>{exercise.name}</i></th>)}
                 </tr>
-                <tr ng-repeat="rm in $ctrl.rmData">
-                    <td ng-style="{{$ctrl.background(rm.factor)}}">{rm_factor * 100} %</td>
-                    <td>{rm_reps}</td>
-                    <td ng-repeat="exercise in $ctrl.exercises">{$ctrl_round(exercise_rm1 * rm_factor)}</td>
-                </tr>
+                {Essentials.data.map(rm =>
+                    <tr>
+                        <td style={background(rm.factor)}>{rm.factor * 100} %</td>
+                        <td>{rm.reps}</td>
+                        {props.exercises.map((exercise) =>
+                            <td>{round(exercise.rm1 * rm.factor)}</td>)}
+                    </tr>)}
             </table>
-            <small class="darker">Precision = {$ctrl_precision}</small>
+            <small class="darker">Precision = {precision}</small>
+            <br />
         </div>);
 }
 
