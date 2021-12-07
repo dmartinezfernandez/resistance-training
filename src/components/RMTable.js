@@ -1,4 +1,4 @@
-import Essentials from "./Essentials";
+import Essentials from "../model/Essentials";
 
 /**
  * @typedef {object} Exercise
@@ -14,7 +14,7 @@ import Essentials from "./Essentials";
  */
 function RMTable(props) {
     const precision = Number(props.precision);
-    const decimals = precision !== NaN && !Number.isInteger(precision) ?
+    const decimals = !isNaN(precision) && !Number.isInteger(precision) ?
         precision.toString().split('.')[1].length : 0;
     const round = function (value) {
         let x = Math.round(value / precision) * precision;
@@ -27,7 +27,7 @@ function RMTable(props) {
                 'background-color': 'var(--strength-color)'
             };
         }
-        else if (factor == 0.85) {
+        else if (factor === 0.85) {
             return {
                 'background-image': 'linear-gradient(var(--strength-color), var(--hypertrophy-color))'
             };
@@ -37,7 +37,7 @@ function RMTable(props) {
                 'background-color': 'var(--hypertrophy-color)'
             };
         }
-        else if (factor == 0.67) {
+        else if (factor === 0.67) {
             return {
                 'background-image': 'linear-gradient(var(--hypertrophy-color), var(--undefined-color))'
             };
@@ -65,8 +65,7 @@ function RMTable(props) {
                             <td>{round(exercise.rm1 * rm.factor)}</td>)}
                     </tr>)}
             </table>
-            <small class="darker">Precision = {precision}</small>
-            <br />
+            <small class="darker">Precision = {precision}</small><br />
         </div>);
 }
 

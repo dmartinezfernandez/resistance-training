@@ -13,6 +13,7 @@
 
 <body>
   <h1>%REACT_APP_TITLE%</h1>
+
   <noscript>You need to enable JavaScript to run this app.</noscript>
 
   <!-- App-->
@@ -45,72 +46,3 @@
 </body>
 
 </html>
-
-
-
-
-<!-- <section ng-controller="ResistanceTrainingController as controller" ng-cloak>
-
-    -- Table --
-
-    <rm-table exercises="controller.data.exercises" precision="controller.data.precision"
-      has-data="controller.data.isLoaded"></rm-table>
-    <br ng-if="controller.data.isLoaded">
-
-
-    -- 1RM Calculator --
-
-    <details>
-      <summary>1RM Calculator</summary>
-      <br>
-      <label>Load:</label><br>
-      <input type="text" ng-model="controller.calculator.load" placeholder="Enter load here"
-        ng-change="controller.calculatorChange()"><br>
-      <label>Repetitions:</label><br>
-      <input type="text" ng-model="controller.calculator.reps" placeholder="Enter repetitions here"
-        ng-change="controller.calculatorChange()"><br>
-
-      <rm-table exercises="controller.calculator.exercises" precision="controller.calculator.precision"
-        has-data="controller.calculatorHasValue()"></rm-table>
-
-    </details>
-    <br>
-
-    -- Query --
-
-    <details ng-open="!controller.data.isLoaded">
-      <summary>Query</summary>
-      <br>
-      <label>Exercises:</label><br>
-      <input type="text" ng-model="controller.query.exercises" placeholder="Enter comma separated exercises here"
-        style="width: 100%;">
-      <label>1RM:</label><br>
-      <input type="text" ng-model="controller.query.rm1" placeholder="Enter comma separated 1RM values here"
-        style="width: 100%;"><br>
-      <label>Precision:</label><br>
-      <select ng-model="controller.query.precision">
-        <option value="2.5">2.5</option>
-        <option value="1">1</option>
-        <option value="0.5">0.5</option>
-      </select><br>
-      <br>
-      <a href="javascript:void(0)" ng-click="controller.query.submit()">Submit</a><br>
-      Enter comma separated exercises and 1RM values, then click submit and add the new URL to your browser bookmarks.
-    </details>
-  </section>
-  <br>
-
-
-  -- Javascript --
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-  <script>
-    "use strict";
-
-    (function () {
-      angular.module('app', []);
-    }());
-
-  </script>
-  <script src="resistancetraining.js"></script>
-  <script src="resistanceTraining/rmTable.js"></script>
--->

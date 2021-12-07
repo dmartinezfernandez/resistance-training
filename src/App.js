@@ -1,5 +1,6 @@
-import RMTable from "./RMTable";
-import Calculator from "./Calculator";
+import Report from "./components/Report";
+import Calculator from "./components/Calculator";
+import Form from "./components/Form";
 
 function App() {
   const exercises = [
@@ -11,12 +12,10 @@ function App() {
     <div>
 
       {/* RM Table */}
-      {exercises.length > 0 &&
-        <RMTable exercises={exercises} precision={0.25}></RMTable>
-      }
-      <br />
+      {<Report></Report>}
 
       {/* RM Form */}
+      <Form></Form>
 
       {/* 1RM Calculator */}
       <Calculator></Calculator>
