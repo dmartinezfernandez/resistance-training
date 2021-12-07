@@ -16,4 +16,4 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 ## Go to
 
-(AngularJS) [Resistance Training](https://dmartinezfernandez.github.io/fitness/) RM Calculator in dmartinezfernandez's GitHub Pages.
+(AngularJS) [Resistance Training](https://dmartinezfernandez.github.io/resistance-training/) RM Calculator in dmartinezfernandez's GitHub Pages.
