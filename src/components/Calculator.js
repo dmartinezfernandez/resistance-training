@@ -2,6 +2,7 @@ import { useState } from 'react';
 import RMTable from "./RMTable";
 import Essentials from '../model/Essentials';
 import Precision from '../model/Precision';
+import Exercise from '../model/Exercise';
 
 /**
  * 1RM Calculator component
@@ -9,9 +10,9 @@ import Precision from '../model/Precision';
 function Calculator() {
     const [load, setLoad] = useState(undefined);
     const [reps, setReps] = useState(undefined);
-    const rm1 = Essentials.calc1RM(load, reps);
+    const rm1 = Essentials.calc1RM(load, Number(reps));
     const showRMTable = !isNaN(rm1);
-    const exercises = [{ name: 'Calc.', rm1: rm1 }];
+    const exercises = [new Exercise('Calc.', rm1)];
     return <section>
         <details>
             <summary>1RM Calculator</summary>

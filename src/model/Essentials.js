@@ -1,10 +1,4 @@
 /**
- * @typedef {*} RM
- * @type {object}
- * @property {Number} RM.reps - Repetitions
- * 
- */
-/**
  * @property {Object[]} data - Repetitions Maximum and percentage of 1RM
  */
 class Essentials {
@@ -25,14 +19,20 @@ class Essentials {
         //{ reps: 14, factor: 0.6567 },
         { reps: 15, factor: 0.65 }
     ];
+    /**
+     * Calculate 1RM.
+     * @param {number} load 
+     * @param {number} reps - Repetitions
+     * @returns {number}
+     */
     static calc1RM(load, reps) {
         if (!(this._validateLoad(load) && this._validateReps(reps))) {
             return NaN;
         }
-        return load / this.data.find(rm => rm.reps == reps).factor;
+        return load / this.data.find(rm => rm.reps === reps).factor;
     }
     static _validateReps(reps) {
-        return this.data.find(rm => rm.reps == reps) !== undefined;
+        return this.data.find(rm => rm.reps === reps) !== undefined;
     }
     static _validateLoad(load) {
         return load > 0.0;

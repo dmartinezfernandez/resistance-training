@@ -1,7 +1,19 @@
 import Precision from "./Precision";
+import Exercise from "./Exercise";
 
+/**
+ * @type {object}
+ * @property {Exercise[]} exercises
+ * @property {number} precision
+ * @property {boolean} isValid - Query string parsed successfully
+ * @property {object} params - Query string params as strings
+ * @property {string} params.exercises - Comma separated exercise names
+ * @property {string} params.rm1 - Comma separated exercise 1RM values
+ * @property {string} params.precision - Precision
+ */
 const QueryString = (
     function () {
+        /** @type {Exercise[]} */
         const exercises = [];
         const params = new URLSearchParams(window.location.search);
         const param1 = params.get("exercises");
@@ -13,10 +25,7 @@ const QueryString = (
             const split2 = param2.split(",").map(item => item.trim()).map(Number);
             if (split1.length && split1.length === split2.length) {
                 for (let i = 0; i < split1.length; i++) {
-                    exercises.push({
-                        name: split1[i],
-                        rm1: split2[i]
-                    });
+                    exercises.push(new Exercise(split1[i], split2[i]));
                 };
             }
         }

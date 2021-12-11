@@ -1,10 +1,5 @@
 import Essentials from "../model/Essentials";
-
-/**
- * @typedef {object} Exercise
- * @property {string} name
- * @property {number} rm1 - 1RM
- */
+/** @typedef {import("../model/Exercise").default} Exercise */
 
 /**
  * RM Table component
