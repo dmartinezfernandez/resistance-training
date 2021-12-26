@@ -18,6 +18,7 @@ select {
   font-family: system-ui;
   background-color: #13171a /* Cool Gray 100 */;
   color: #b9bfc7 /* Cool Gray 30 */;
+  border: none;
 }
 
 .darker {
