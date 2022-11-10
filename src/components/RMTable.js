@@ -44,13 +44,26 @@ function RMTable(props) {
         }
     };
 
+    const isEmptyOrSpaces = (str) => str === null || str.match(/^ *$/) !== null;
+    const headers = [];
+    let colSpan = 1;
+    for (let i = props.exercises.length - 1; i >= 0; i--) {
+        if (isEmptyOrSpaces(props.exercises[i].name)) {
+            colSpan++;
+        }
+        else {
+            headers.unshift(<th colSpan={colSpan}>{props.exercises[i].name}</th>)
+            colSpan = 1;
+        }
+    }
+
     return (
         <div>
             <table class="numeric-table">
                 <tr>
                     <th>Load</th>
                     <th>RM</th>
-                    {props.exercises.map((exercise) => <th><i>{exercise.name}</i></th>)}
+                    {headers.map(th => th)}
                 </tr>
                 {Essentials.data.map(rm =>
                     <tr>
